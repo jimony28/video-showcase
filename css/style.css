@@ -1,0 +1,916 @@
+/* ========== Root & Base Reset ========== */
+:root {
+    --primary-color: #facc15;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --blur: blur(12px);
+    --text-light: #cccccc; /* Example light gray */
+    --gradient-text: linear-gradient(to right, #ff7979, #fdb48c, #fff08e, #afff88, #99e9ff, #99baff, #889dff, #c780ff, #ff7979);
+    --caret-color: #ffffff; /* Example caret color */
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: white;
+  }
+  
+  /* ========== Header ========== */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100; /* Ensure header stays above other content */
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.open-for-work {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-left: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 8px var(--primary-color);
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--primary-color);
+}
+
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.mobile-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 2rem;
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-nav.show {
+  display: flex;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+  
+  /* ========== Hero Section ========== */
+/* Make sure these variables are defined, likely in :root */
+:root {
+    --gradient-text: linear-gradient(90deg, #ff8a00, #e52e71); /* Example gradient */
+    --text-light: #cccccc; /* Example light gray */
+    --caret-color: #ffffff; /* Example caret color */
+  }
+  
+  /* Parent Hero Styles (Assumed for context) */
+  .hero {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  padding: 12rem 8rem 10rem; /* Generous padding */
+  gap: 4rem; /* Balanced gap */
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+  
+  /* Hero Left Section Styles */
+  .hero-left {
+    flex: 1.2; /* Increased from 0.9/1 to give more space */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    max-width: 720px; /* Increased from previous values (~600px) */
+    padding-right: 2rem; /* Added padding for better spacing from cards */
+  }
+  
+  /* Hero Right Section Styles */
+  .hero-right {
+    flex: 0.8; /* Decreased from 1.1/1 to allow left section to expand */
+    display: flex;
+    justify-content: flex-start; /* Align toward left for better continuity */
+    align-items: center;
+  }
+  
+  /* Headline Styles - Slight size reduction for balance */
+  .hero-headline {
+    font-size: 3.25rem; /* Slightly reduced for better balance */
+    font-weight: 700;
+    margin-bottom: 1.5rem; /* Increased spacing after headline */
+    line-height: 1.1;
+    text-align: left; /* Left align headline */
+    margin-left: 0; /* Remove auto margin */
+    margin-right: 0;
+    width: 100%;
+  }
+
+  /* Card stack - reduced size */
+  .card-stack {
+    position: relative;
+    width: 840px;
+    height: 576px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    cursor: pointer; /* Add cursor to indicate interactivity */
+    will-change: transform; /* Optimize for animations */
+    perspective: 1000px; /* Add perspective for better 3D effect */
+  }
+  
+  .card-stack:before {
+    content: "";
+    position: absolute;
+    width: 408px; /* Reduced to 80% of 510px */
+    height: 624px; /* Reduced to 80% of 780px */
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 2rem; /* Reduced proportionally */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.3); /* Enhanced shadow for reduced cards */
+    z-index: 0; /* Behind all mini cards */
+  }
+  
+  /* Reduced card dimensions for TikTok UI - scaled to 80% */
+  .mini-card {
+    position: absolute;
+    width: 288px; /* Reduced to 80% of 360px */
+    height: 504px; /* Reduced to 80% of 630px */
+    background: rgba(20, 20, 20, 0.7);
+    border-radius: 1.6rem; /* Reduced proportionally */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 500;
+    color: #fff;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Improved easing */
+    transform-origin: bottom center; /* Consistent rotation point */
+    overflow: hidden; /* Important to keep video within bounds */
+    padding: 0;
+    pointer-events: none; /* Let hover work on container */
+  }
+  
+  /* TikTok content area with gradient overlay */
+  .tiktok-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+
+  .tiktok-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.2) 15%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.6) 85%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Video container takes full size of the card */
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden; /* Prevent iframe overflow */
+    border-radius: inherit; /* Match the card's border radius */
+  }
+  
+  /* Style the iframe to cover the entire container */
+  .tiktok-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%); /* Center perfectly */
+    object-fit: cover; /* Cover the entire area */
+    border: none;
+    background: #000; /* Background while loading */
+  }
+  
+  /* Card label/type - top of card */
+  .card-type {
+    position: absolute;
+    top: 1rem; /* Adjusted for reduced cards */
+    left: 1rem; /* Adjusted for reduced cards */
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.35rem 0.8rem; /* Adjusted for reduced cards */
+    border-radius: 999px;
+    font-size: 0.8rem; /* Adjusted for reduced cards */
+    font-weight: 600;
+    color: white;
+    z-index: 3;
+  }
+  
+  /* Bottom user info section */
+  .tiktok-user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Adjusted for reduced cards */
+    padding-left: 0.4rem; /* Adjusted for reduced cards */
+  }
+  
+  .tiktok-avatar {
+    width: 2.5rem; /* Adjusted for reduced cards */
+    height: 2.5rem; /* Adjusted for reduced cards */
+    border-radius: 50%;
+    border: 1.5px solid white;
+    margin-right: 0.6rem; /* Adjusted for reduced cards */
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+  }
+  
+  .tiktok-username {
+    font-size: 0.85rem; /* Adjusted for reduced cards */
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+  }
+  
+  .tiktok-caption {
+    font-size: 0.75rem; /* Adjusted for reduced cards */
+    opacity: 0.9;
+    margin: 0.2rem 0 0.4rem; /* Adjusted for reduced cards */
+    max-width: 85%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Music row */
+  .tiktok-music {
+    display: flex;
+    align-items: center;
+    font-size: 0.7rem; /* Adjusted for reduced cards */
+    margin-top: 0.64rem; /* Adjusted for reduced cards */
+  }
+  
+  .music-icon {
+    width: 0.9rem; /* Adjusted for reduced cards */
+    height: 0.9rem; /* Adjusted for reduced cards */
+    margin-right: 0.4rem; /* Adjusted for reduced cards */
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem; /* Adjusted for reduced cards */
+  }
+  
+  /* Action buttons column */
+  .tiktok-actions {
+    position: absolute;
+    right: 1rem; /* Adjusted for reduced cards */
+    bottom: 4.5rem; /* Adjusted for reduced cards */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem; /* Adjusted for reduced cards */
+    z-index: 3;
+  }
+
+  .action-button {
+    width: 2.5rem; /* Adjusted for reduced cards */
+    height: 2.5rem; /* Adjusted for reduced cards */
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem; /* Adjusted for reduced cards */
+    transition: transform 0.2s ease;
+  }
+
+  .action-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .action-count {
+    font-size: 0.7rem; /* Adjusted for reduced cards */
+    margin-top: 0.2rem; /* Adjusted for reduced cards */
+  }
+
+  /* Bottom Info Section - Fixed positioning */
+  .tiktok-bottom {
+    position: absolute;
+    bottom: 0.8rem;
+    left: 0.8rem;
+    right: 0.8rem;
+    z-index: 3;
+  }
+  
+  /* Updated positioning for reduced cards - initial state */
+  .card-stack .mini-card:nth-child(1) {
+    left: calc(50% - 144px); /* Half of card width */
+    z-index: 1; /* Bottom card */
+    transform: translateY(30px); /* Pushed down */
+  }
+  
+  .card-stack .mini-card:nth-child(2) {
+    left: calc(50% - 144px);
+    z-index: 2; /* Middle card */
+    transform: translateY(-15px);
+  }
+  
+  .card-stack .mini-card:nth-child(3) {
+    left: calc(50% - 144px);
+    z-index: 3; /* Top card */
+    transform: translateY(-60px);
+  }
+  
+  /* Updated hover effect for reduced cards - proper arrangement */
+  .card-stack:hover .mini-card:nth-child(1) {
+    left: calc(50% - 336px); /* Far left */
+    transform: rotate(12deg) translateY(-12px);
+    z-index: 2; /* Middle layer on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card-stack:hover .mini-card:nth-child(2) {
+    left: calc(50% - 144px); /* Center */
+    transform: translateY(-40px); /* Lifted */
+    z-index: 1; /* Bottom layer on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card-stack:hover .mini-card:nth-child(3) {
+    left: calc(50% + 48px); /* Far right */
+    transform: rotate(-12deg) translateY(-12px);
+    z-index: 3; /* Top layer on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Fix for possible Firefox backdrop-filter issues */
+  @supports not (backdrop-filter: blur(8px)) {
+    .mini-card {
+      background: rgba(20, 20, 20, 0.9);
+    }
+  }
+
+  /* Ensure consistent targeting for touch devices */
+  .card-stack.hover-active .mini-card:nth-child(1) {
+    left: calc(50% - 336px);
+    transform: rotate(12deg) translateY(-12px);
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-stack.hover-active .mini-card:nth-child(2) {
+    left: calc(50% - 144px);
+    transform: translateY(-40px);
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .card-stack.hover-active .mini-card:nth-child(3) {
+    left: calc(50% + 48px);
+    transform: rotate(-12deg) translateY(-12px);
+    z-index: 3; 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Animated Subline Styles - Adjusted to complement headline */
+  .animated-subline {
+    font-size: 2.75rem; /* Slightly reduced for better balance */
+    font-weight: 700;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Hide original text color */
+    display: inline-block; /* Needed for background-clip and border */
+    border-right: 4px solid white; /* Thicker caret */
+    padding-right: 8px; /* Increased padding */
+    animation: blinkCaret 0.75s step-end infinite;
+    min-height: 3.3rem; /* Adjusted height */
+    line-height: 1.2; /* Match headline */
+    text-align: left; /* Left align animated text */
+    margin-left: 0; /* Remove auto margin */
+    margin-right: 0;
+    margin-bottom: 0.5rem; /* Add some space after subline */
+  }
+  
+  /* Caret Blinking Animation */
+  @keyframes blinkCaret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--caret-color); }
+  }
+  
+  /* Subtitle Styles - Adjusted for better hierarchy */
+  .subtitle {
+    font-size: 1.5rem; /* Slightly reduced for better balance */
+    font-weight: 400;
+    max-width: 700px; /* Increased from around 550px */
+    color: var(--text-light);
+    margin-top: 2rem; /* More space after animated subline */
+    line-height: 1.6; /* Improve readability */
+    text-align: left; /* Left align subtitle */
+    margin-left: 0; /* Remove auto margin */
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1400px) {
+    .hero {
+      padding: 10rem 6rem 8rem;
+      gap: 3rem;
+    }
+    
+    .hero-left {
+      max-width: 600px;
+      padding-right: 1rem;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .hero-left {
+      flex: 1;
+    }
+    
+    .hero-right {
+      flex: 1;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .hero {
+      flex-direction: column;
+      padding: 8rem 4rem 6rem;
+    }
+    
+    .hero-left, .hero-right {
+      width: 100%;
+      max-width: 700px;
+      padding-right: 0;
+    }
+    
+    .hero-left {
+      align-items: center; /* Center content on tablet */
+      text-align: center; /* Center text on tablet */
+    }
+    
+    .hero-headline, .animated-subline, .subtitle {
+      text-align: center; /* Center text on tablet */
+    }
+    
+    .card-stack {
+      width: 650px;
+      height: 450px;
+      transform: scale(0.8);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      padding: 7rem 2rem 5rem;
+    }
+  
+    .hero-left, .hero-right {
+      max-width: 100%;
+    }
+  
+    .hero-left {
+       /* Reset flex basis if needed, or adjust alignment */
+       width: 100%; /* Take full width */
+       display: flex; /* Use flex to center content easily */
+       flex-direction: column;
+       align-items: center; /* Center items horizontally */
+       text-align: center; /* Ensure text inside is centered */
+       padding-right: 0;
+    }
+  
+    .hero-right {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .hero-headline {
+      font-size: 2.4rem; /* Adjusted for mobile */
+      text-align: center; /* Center headline on mobile */
+    }
+  
+    .animated-subline {
+      font-size: 2rem; /* Mobile font size */
+      text-align: center; /* Center animated text */
+      min-height: 2.4rem; /* Adjust min-height */
+    }
+  
+    .subtitle {
+      font-size: 1.2rem; /* Mobile font size */
+      text-align: center; /* Center subtitle */
+      max-width: 100%; /* Match width of hero headline */
+      width: auto; /* Let it size naturally */
+    }
+  
+    .card-stack {
+      width: 100%;
+      max-width: 500px;
+      height: 350px;
+      transform: scale(0.7);
+    }
+    
+    .card-stack:before {
+      width: 270px;
+      height: 405px;
+    }
+  }
+
+/* Video Gallery Section with gradient that bleeds into hero */
+.video-gallery-section {
+  padding: 6rem 2rem 4rem;
+  width: 100%;
+  position: relative;
+  overflow: visible; /* Allow gradient to bleed upward */
+  z-index: 1;
+  margin-top: -3rem; /* Pull up to create overlap with hero */
+}
+
+/* Vibrant gradient background effect that bleeds into hero */
+.video-gallery-section::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 300%; /* Extra tall to ensure it extends upward */
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 121, 198, 0.25),
+    rgba(139, 233, 253, 0.2),
+    rgba(80, 60, 120, 0.3),
+    rgba(199, 128, 255, 0.25)
+  );
+  filter: blur(100px);
+  opacity: 0.4;
+  z-index: -1;
+  top: -200%; /* Position far up to bleed into hero */
+  left: -50%;
+  pointer-events: none;
+  animation: slowRotate 40s infinite linear;
+}
+
+@keyframes slowRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Glassmorphic container with matching hero gradient border */
+.gallery-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible;
+  margin: 0 auto; /* Center the container */
+}
+
+/* RGB border effect using the hero gradient */
+.gallery-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 1px; /* Border thickness */
+  background: var(--gradient-text); /* Use the same gradient as hero text */
+  filter: blur(1px); /* Subtle blur effect */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: source-out;
+  animation: border-rotate 8s linear infinite;
+  opacity: 0.8;
+}
+
+/* Content container to account for the border */
+.gallery-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gallery heading with gradient */
+.gallery-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 3rem;
+}
+
+/* Tabs navigation */
+.video-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+/* Improved tab button styling */
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle hover effect for inactive tabs */
+.tab-button:not(.active):hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Active tab styling with gradient border */
+.tab-button.active {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Gradient border for active tab */
+.tab-button.active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 999px;
+  padding: 2px;
+  background: var(--gradient-text);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: source-out;
+  mask-composite: exclude;
+}
+
+/* Tab content styling */
+.tab-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive styling for tabs */
+@media (max-width: 768px) {
+  .video-tabs {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    white-space: nowrap; /* Prevent tab text wrapping */
+  }
+  
+  .video-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Video grid layout */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Video card styling */
+.video-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden; /* Ensures video stays within bounds */
+  background: var(--glass-bg);
+  backdrop-filter: var(--blur);
+  -webkit-gftbackdrop-filter: var(--blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  aspect-ratio: 9/16; /* Vertical videos */
+}
+
+.video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.video-card:hover .video-overlay {
+  opacity: 1;
+}
+
+.video-overlay h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-container {
+    max-width: 90%; /* Use percentage width on smaller screens */
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-gallery-section {
+    margin-top: -2rem; /* Less overlap on mobile */
+    padding: 4rem 1remt 3rem;
+  }
+  
+  .gallery-container {
+    padding: 1rem;
+    border-radius: 15px;
+  }
+  
+  .gallery-container::before {
+    border-radius: 15px;
+  }
+
+  .gallery-heading {
+    font-size: 2rem;
+  }
+
+  .video-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 0.5rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .video-tabs::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
+  
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .video-card {
+    aspect-ratio: 16/9; /* Switch to horizontal for better mobile viewing */
+  }
+}
+

@@ -1,0 +1,168 @@
+Project Specification: Video Portfolio Website
+
+1. Overview
+
+The goal is to create a modern, responsive, single-page portfolio website showcasing the video editing and motion design work of Van Yves. The site should feature a hero section with animated text, a filterable video gallery, a timeline of experience, and a contact form.
+
+2. General Requirements
+
+-   Responsiveness: The website must be fully responsive and display correctly on common screen sizes: Desktop, Tablet (approx. 768px - 992px), and Mobile (below 768px). Specific layout adjustments are detailed in each section.
+-   Browser Compatibility: Ensure compatibility with the latest versions of major browsers (Chrome, Firefox, Safari, Edge).
+-   Performance: Optimize assets (images, videos) and code for reasonable loading times. Use lazy loading for images and iframes where appropriate.
+-   Smooth Scrolling: Navigation links should trigger smooth scrolling to the corresponding sections.
+-   Code Standards: Use semantic HTML5, well-organized CSS (potentially using variables for colors, fonts, etc.), and clean JavaScript.
+
+3. Website Sections & Features
+
+3.1. Header (<header class="header">)
+
+-   Content:
+    -   Logo: Text "Van Yves".
+    -   Status Indicator: Text "<span class="open-for-work">...Open for Work</span>" with a status dot (<span class="status-dot">).
+    -   Navigation (<nav class="nav">): Links for "Work", "Experience", "Contact".
+-   Appearance:
+    -   Fixed or sticky header is preferred but optional.
+    -   Clean layout, logo on the left, navigation on the right.
+    -   Style the status dot (e.g., green color).
+-   Functionality:
+    -   Navigation links (<a>) must use href="#section-id" (e.g., href="#gallery") to link to corresponding sections.
+    -   Clicking links should trigger smooth scrolling (CSS scroll-behavior: smooth; on html).
+-   Responsiveness:
+    -   Tablet: Reduce padding, potentially reduce nav link gap.
+    -   Mobile: Implement a hamburger menu button. The desktop navigation (<nav class="nav">) should be hidden, and clicking the hamburger button should toggle the visibility of a mobile-friendly menu (likely vertical). *Note: JS required for toggle.*
+
+3.2. Hero Section (<section class="hero">)
+
+-   Content:
+    -   Headline (<h1 class="hero-headline">):
+        -   Static Text: "Freelance Video Editor for – "
+        -   Animated Text Container (<span class="gradient-text">): Contains multiple phrases (<span class="type-phrase" id="phraseX">).
+            -   Phrase 1: "Short Form Videos, "
+            -   Phrase 2: "Explainer Videos, "
+            -   Phrase 3: "Podcast & "
+            -   Phrase 4: "Ai Generated Videos"
+    -   Subtitle (<p class="subtitle">): "I specialize in crafting dynamic short-form, explainer, podcast, and AI-driven videos."
+-   Appearance:
+    -   Section should be vertically centered or have significant top/bottom padding.
+    -   All text content should be centered horizontally.
+    -   Headline should be large and prominent.
+    -   Animated text (gradient-text) should have the specified multi-color gradient applied as a text fill (background-clip: text).
+-   Functionality (Animation):
+    -   The phrases within .gradient-text must animate sequentially using CSS animations (@keyframes typing, @keyframes deleting, @keyframes blink-caret, @keyframes revealInstantly):
+        1.  Phrase 1 types out character by character (steps()).
+        2.  Pause briefly.
+        3.  Phrase 1 deletes character by character (steps()).
+        4.  Phrase 2 types out.
+        5.  Pause.
+        6.  Phrase 2 deletes.
+        7.  Phrase 3 types out.
+        8.  Pause.
+        9.  Phrase 3 deletes.
+        10. Phrase 4 types out. A blinking cursor (border-right) should appear at the end of Phrase 4 as it types.
+        11. Once Phrase 4 finishes typing, Phrases 1, 2, and 3 should instantly reappear (revealInstantly animation).
+    -   The static text "Freelance Video Editor for – " must remain visible throughout.
+-   Responsiveness:
+    -   Reduce font sizes for headline and subtitle on smaller screens.
+    -   Ensure animation timing and layout remain correct.
+
+3.3. Video Gallery (<section id="gallery" class="gallery-wrapper">)
+
+-   Appearance:
+    -   Outer wrapper (gallery-wrapper) for padding/background.
+    -   Inner container (gallery-glass) should have a "glassmorphism" effect (background blur, transparency, border).
+-   Content & Functionality:
+    -   Tabs (<div class="tabs">):
+        -   Buttons: "Shortform", "Explainer", "Podcast", "AI Video". Each button has a data-category attribute matching a tab content ID suffix (e.g., data-category="shortform").
+        -   Appearance: Style tabs clearly, with a distinct visual state for the active tab.
+        -   Functionality: Clicking a tab should:
+            -   Add the active class to the clicked tab and remove it from others.
+            -   Show the corresponding .tab-content div (e.g., #shortform-tab) and hide all other .tab-content divs. (Requires JavaScript initTabSystem).
+    -   Shortform Tab Content (<div class="tab-content active" id="shortform-tab">):
+        -   Layout: Horizontal carousel (<div class="carousel" id="shortform">) inside a container (<div class="carousel-container">).
+        -   Content: Multiple .video-card elements.
+            -   Each card represents a short-form video.
+            -   Use <iframe> for Bunny Stream URLs (e.g., https://iframe.mediadelivery.net/...). Include autoplay=true, muted=true, controls=false parameters in the src URL. Use loading="lazy".
+            -   Use <video> tag for local files (e.g., videos/shorts2.mp4). Include muted, loop, autoplay, playsinline, preload="metadata" attributes.
+            -   Each card must have a .tiktok-ui overlay containing .video-info (username, caption, music) and .video-actions (icons for like, comment, share). This UI should overlay the video/iframe.
+            -   Include a final "View More" card (.view-more-card) styled differently, linking to an external URL (e.g., YouTube Shorts channel).
+        -   Appearance: .video-card should have a vertical aspect ratio similar to TikTok/Reels. .tiktok-ui should be styled to resemble the platform.
+        -   Functionality:
+            -   Carousel should be scrollable/swipeable horizontally.
+            -   Previous/Next arrow buttons (.carousel-arrow) must scroll the carousel content. (Requires JavaScript initCarousel).
+            -   Videos/iframes should attempt to autoplay when visible (browser policies apply).
+    -   Other Formats Tab Content (<div class="tab-content" id="other-formats-tab">): (Shared for Explainer, Podcast, AI tabs)
+        -   Layout: A single horizontal, swipeable container (<div class="other-formats-carousel">).
+        -   Content: Individual cards representing each format (.explainer-card, .podcast-card, .ai-video-card). Use placeholder images/text initially.
+        -   Appearance: Style cards appropriately for their content (e.g., wider aspect ratio for explainer videos).
+        -   Functionality: Container must be horizontally scrollable/swipeable. CSS scroll-snap should be used for better UX.
+-   Responsiveness:
+    -   Adjust padding on wrapper/glass.
+    -   Tabs might wrap or become scrollable on small screens. Reduce tab padding/font size.
+    -   Reduce the size (width, height) of .video-card and other format cards.
+    -   Adjust carousel arrow size/position.
+    -   Ensure carousels remain swipeable.
+
+3.4. Experience Section (<section id="experience" class="experience-section">)
+
+-   Content:
+    -   Section Title: "Experience".
+    -   Timeline (<div class="timeline">): A series of .timeline-item elements.
+    -   Each .timeline-item contains:
+        -   Dot (<div class="timeline-dot">).
+        -   Content (<div class="timeline-content">): Job Title (<h3>), Duration/Company (<span>), Description (<p>).
+-   Appearance:
+    -   Vertical layout with a central line (.timeline::before).
+    -   Timeline dots aligned with the line.
+    -   Content positioned to the side of the dot/line.
+-   Functionality:
+    -   Items should have a scroll reveal animation (fade/slide in as they enter the viewport). The animate-on-scroll class and data-delay attributes suggest this is intended. (Requires JavaScript initScrollAnimations).
+-   Responsiveness:
+    -   Adjust padding, line position, dot position, and text spacing for smaller screens.
+    -   Reduce font sizes.
+
+3.5. Contact Section (<section id="contact" class="contact-section">)
+
+-   Content:
+    -   Section Title: "Let's Connect".
+    -   Subtitle: "Tell me about your project or just say hello."
+    -   Contact Form (<form class="contact-form">):
+        -   Netlify attributes: name="contact", method="POST", data-netlify="true".
+        -   Hidden Input: <input type="hidden" name="form-name" value="contact" />.
+        -   Name Input: type="text", name="name", placeholder="Your Name", required.
+        -   Email Input: type="email", name="email", placeholder="Your Email", required.
+        -   Subject Input: type="text", name="subject", placeholder="Subject".
+        -   Message Textarea: name="message", rows="5", placeholder="Your Message", required.
+        -   Submit Button: <button type="submit">.
+-   Appearance:
+    -   Clean layout for the form.
+    -   Use .form-grid to place Name and Email side-by-side on desktop.
+    -   Style inputs, textarea, and button consistently.
+-   Functionality:
+    -   Form submission should be handled by Netlify. No custom backend needed.
+    -   Basic client-side validation via required attributes.
+-   Responsiveness:
+    -   Stack Name and Email inputs vertically (.form-grid becomes single column) on smaller screens.
+    -   Adjust padding/margins.
+
+3.6. Footer (<footer class="site-footer">)
+
+-   Content: Basic copyright information (e.g., "© [Year] Van Yves. All rights reserved."). Optional: Social media links.
+-   Appearance: Simple, clean design. Centered text.
+-   Responsiveness: Stack content vertically if multiple elements exist (e.g., copyright and social links).
+
+4. JavaScript Functionality (script.js)
+
+-   initTabSystem(): Handles the logic for switching between tabs in the Video Gallery.
+-   initCarousel(): Handles the previous/next button clicks for the Shortform carousel. *Note: Swipe functionality might be CSS-driven (overflow-x: auto) or require a JS library.*
+-   initScrollAnimations(): Uses IntersectionObserver to add an in-view class (or similar) to elements with animate-on-scroll when they enter the viewport, triggering CSS animations. Handle data-delay for staggered animations.
+-   (Future) Mobile Menu Toggle: Add event listener to hamburger button to toggle a class on the navigation/body to show/hide the mobile menu.
+
+5. Assets
+
+-   Video files will be provided (some local, some via Bunny Stream URLs).
+-   Placeholder images for Explainer/Podcast/AI cards initially.
+-   Specify any custom fonts if used.
+
+6. Deployment
+
+-   The site uses Netlify for form handling, so deployment to Netlify is recommended.

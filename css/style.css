@@ -1487,12 +1487,11 @@
 
 /* ========== Contact Section - Core Styles ========== */
 .contact-section {
-  width: 100%;
-  padding: 6rem 2rem;
-  background-color: rgba(10, 10, 10, 0.95);
-  position: relative;
-  overflow: hidden;
-  text-align: center;
+  padding: 4rem 2rem; /* Add padding to the top, bottom, left, and right */
+  margin: 0 auto; /* Center the section horizontally */
+  max-width: 1200px; /* Limit the width for better balance */
+  text-align: center; /* Center-align the content */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
 .contact-section .container {
@@ -1576,6 +1575,19 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 3rem 1.5rem; /* Reduce padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 2rem 1rem; /* Further reduce padding for very small screens */
+  }
 }
 
 /* ========== Footer Section ========== */

@@ -33,21 +33,122 @@
   }
   
   /* ========== Enhanced Header & Navigation - Three-Column Layout ========== */
+/* General Header Styles */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05); /* Glassy background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 2.5rem;
-  display: flex;
-  justify-content: space-between; /* Create three distinct areas */
-  align-items: center;
-  background: var(--glass-bg-light); /* Light glassmorphic background */
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
-  border-bottom: 1px solid var(--border-color-light);
-  z-index: 100;
-  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px; /* Slightly larger for better visibility */
+  height: 24px; /* Increased height for better spacing */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease; /* Smooth animation */
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-blue); /* Matches the site's accent color */
+  border-radius: 2px;
+  transition: all 0.3s ease; /* Smooth animation for hover and active states */
+}
+
+/* Hamburger Menu Animation */
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg); /* Adjusted for better alignment */
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0; /* Hide middle bar */
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg); /* Adjusted for better alignment */
+}
+
+/* Hover Effect */
+.hamburger:hover span {
+  background: white; /* Change color on hover */
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Glassy background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 1rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.mobile-nav.show {
+  display: flex; /* Show navigation links when toggled */
+}
+
+.mobile-nav a {
+  padding: 0.75rem 1.5rem; /* Better spacing for touch devices */
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: var(--accent-blue); /* Hover effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger menu on mobile */
+  }
+
+  .nav {
+    display: none; /* Hide desktop navigation */
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: flex; /* Show desktop navigation */
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .hamburger {
+    display: none; /* Hide hamburger menu on larger screens */
+  }
 }
 
 /* Create three column layout - left, center, right */

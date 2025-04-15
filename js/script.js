@@ -330,3 +330,24 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+/* filepath: /Users/vanyvesvillaro/Documents/video-showcase/js/script.js */
+// Mobile navigation menu functionality
+document.addEventListener('DOMContentLoaded', function () {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  // Toggle the mobile navigation menu
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    mobileNav.classList.toggle('show');
+  });
+
+  // Close the menu when a link is clicked
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function () {
+      hamburger.classList.remove('active');
+      mobileNav.classList.remove('show');
+    });
+  });
+});

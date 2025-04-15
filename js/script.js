@@ -168,3 +168,65 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   });
+
+/* filepath: /Users/vanyvesvillaro/Documents/video-showcase/js/script.js */
+// Add carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Get all carousel containers
+  const carousels = document.querySelectorAll('.carousel-container');
+  
+  carousels.forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const cards = track.querySelectorAll('.video-card');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    
+    // Calculate card width (including gap)
+    const cardWidth = () => {
+      const card = cards[0];
+      const style = window.getComputedStyle(card);
+      const width = card.offsetWidth;
+      const marginRight = parseInt(style.marginRight) || 0;
+      return width + marginRight;
+    };
+    
+    // Scroll to previous set
+    prevBtn.addEventListener('click', () => {
+      const scrollAmount = cardWidth() * (window.innerWidth >= 1100 ? 3 : window.innerWidth >= 768 ? 2 : 1);
+      track.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Scroll to next set
+    nextBtn.addEventListener('click', () => {
+      const scrollAmount = cardWidth() * (window.innerWidth >= 1100 ? 3 : window.innerWidth >= 768 ? 2 : 1);
+      track.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Check arrow visibility based on scroll position
+    function updateArrowVisibility() {
+      const isAtStart = track.scrollLeft <= 10;
+      const isAtEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 10;
+      
+      prevBtn.style.opacity = isAtStart ? '0.5' : '1';
+      prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+      
+      nextBtn.style.opacity = isAtEnd ? '0.5' : '1';
+      nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+    }
+    
+    // Initialize arrow visibility
+    updateArrowVisibility();
+    
+    // Update arrow visibility on scroll
+    track.addEventListener('scroll', updateArrowVisibility);
+    
+    // Update on window resize
+    window.addEventListener('resize', updateArrowVisibility);
+  });
+});

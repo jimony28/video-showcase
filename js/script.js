@@ -30,18 +30,74 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial attempt
     attemptPlayback();
+});
     
-    // Try again on visibility change (tab switching)
-    document.addEventListener('visibilitychange', function() {
-      if (document.visibilityState === 'visible') {
-        attemptPlayback();
-      }
+/* filepath: /Users/vanyvesvillaro/Documents/video-showcase/js/script.js */
+// Tab switching functionality for video gallery
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all tab buttons and video grids
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const videoGrids = document.querySelectorAll('.video-grid');
+    
+    // Add click event listeners to each tab button
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Get the category from the data attribute
+        const category = button.getAttribute('data-category');
+        
+        // Remove active class from all buttons
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Add active class to clicked button
+        button.classList.add('active');
+        
+        // Hide all video grids
+        videoGrids.forEach(grid => {
+          grid.classList.add('hidden');
+        });
+        
+        // Show the selected video grid
+        const selectedGrid = document.querySelector(`.video-grid[data-category="${category}"]`);
+        if (selectedGrid) {
+          selectedGrid.classList.remove('hidden');
+          
+          // Pause all videos in hidden grids and play videos in visible grid
+          document.querySelectorAll('.video-grid.hidden video').forEach(video => {
+            video.pause();
+          });
+          
+          selectedGrid.querySelectorAll('video').forEach(video => {
+            // Try to play the video with error handling
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(error => {
+                // Auto-play was prevented, add a play button or handle accordingly
+                console.log('Video autoplay was prevented', error);
+              });
+            }
+          });
+        }
+      });
     });
     
-    // Alternative approach - force videos to play on user interaction
-    document.addEventListener('click', function() {
-      attemptPlayback();
-    }, {once: true});
+    // Optional: Lazy load videos when they come into view
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const video = entry.target;
+            if (video.parentElement.closest('.video-grid:not(.hidden)')) {
+              video.play().catch(err => console.log('Autoplay prevented:', err));
+            }
+            videoObserver.unobserve(video);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll('.video-card video').forEach(video => {
+        videoObserver.observe(video);
+      });
+    }
   });
 
   /* filepath: /Users/vanyvesvillaro/Documents/video-showcase/js/script.js */

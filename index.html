@@ -186,34 +186,159 @@
   <!-- End of Hero Section -->
 
   <!-- Video Gallery Section - Now properly positioned below the hero -->
-  <section class="video-gallery-section" id="gallery">
+<!-- Video Gallery Section -->
+<section class="video-gallery-section" id="work">
     <div class="gallery-container">
       <div class="gallery-content">
         <h2 class="gallery-heading">Video Portfolio</h2>
         
         <div class="video-tabs">
-          <button class="tab-button active" data-category="all"><span>All</span></button>
-          <button class="tab-button" data-category="shortform"><span>Short Form</span></button>
-          <button class="tab-button" data-category="explainer"><span>Explainer</span></button>
-          <button class="tab-button" data-category="podcast"><span>Podcast</span></button>
-          <button class="tab-button" data-category="ai"><span>AI-Driven</span></button>
+            <button class="tab-button active" data-category="shortform"><span>Short Form</span></button>
+            <button class="tab-button" data-category="explainer"><span>Explainer</span></button>
+            <button class="tab-button" data-category="podcast"><span>Podcast</span></button>
+            <button class="tab-button" data-category="ai"><span>AI-Driven</span></button>
+          </div>
+        
+        <!-- Short Form Videos Grid (9:16) -->
+        <div class="video-grid" data-category="shortform">
+          <!-- Video Card 1 -->
+          <div class="video-card aspect-ratio-9-16">
+            <video muted loop playsinline autoplay>
+              <source src="https://iframe.mediadelivery.net/play/409608/fdb2edd7-ee89-4d05-9e1a-38d5cb6e5303" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <h3>TikTok Growth Strategy</h3>
+              <p>Viral short-form content</p>
+            </div>
+          </div>
+          
+          <!-- Add more shortform video cards here -->
+          <div class="video-card aspect-ratio-9-16">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Instagram Reels</h3>
+              <p>Product showcase</p>
+            </div>
+          </div>
+          
+          <div class="video-card aspect-ratio-9-16">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>YouTube Shorts</h3>
+              <p>Educational content</p>
+            </div>
+          </div>
         </div>
-    
-    <div class="video-grid">
-      <!-- Example video cards - replace with your actual videos -->
-      <div class="video-card" data-category="shortform">
-        <video muted loop playsinline>
-          <source src="videos/shortform1.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay">
-          <h3>Short Form Video</h3>
+        
+        <!-- Explainer Videos Grid (16:9) -->
+        <div class="video-grid hidden" data-category="explainer">
+          <!-- Video Card 1 -->
+          <div class="video-card aspect-ratio-16-9">
+            <video muted loop playsinline autoplay>
+              <source src="https://iframe.mediadelivery.net/play/409608/b630dc41-8f29-401f-b42e-15db57885cc9" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <h3>Product Explainer</h3>
+              <p>SaaS onboarding flow</p>
+            </div>
+          </div>
+          
+          <!-- Add more explainer video cards here -->
+          <div class="video-card aspect-ratio-16-9">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>How-To Guide</h3>
+              <p>Step-by-step tutorial</p>
+            </div>
+          </div>
+          
+          <div class="video-card aspect-ratio-16-9">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Feature Overview</h3>
+              <p>New release highlights</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Podcast Videos Grid (16:9) -->
+        <div class="video-grid hidden" data-category="podcast">
+          <!-- Podcast video cards here -->
+          <div class="video-card aspect-ratio-16-9">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Interview Series</h3>
+              <p>Industry expert insights</p>
+            </div>
+          </div>
+          
+          <div class="video-card aspect-ratio-16-9">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Podcast Highlights</h3>
+              <p>Key takeaways compilation</p>
+            </div>
+          </div>
+          
+          <div class="video-card aspect-ratio-16-9">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Panel Discussion</h3>
+              <p>Multi-speaker format</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- AI-Driven Videos Grid (9:16) -->
+        <div class="video-grid hidden" data-category="ai">
+          <!-- AI video cards here -->
+          <div class="video-card aspect-ratio-9-16">
+            <video muted loop playsinline autoplay>
+              <source src="https://iframe.mediadelivery.net/play/409608/25a52aa9-9311-432e-9352-20facfe2e88e" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <h3>AI Generated Content</h3>
+              <p>Midjourney + After Effects</p>
+            </div>
+          </div>
+          
+          <div class="video-card aspect-ratio-9-16">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>Voice Synthesis</h3>
+              <p>ElevenLabs narration</p>
+            </div>
+          </div>
+          
+          <div class="video-card aspect-ratio-9-16">
+            <div class="video-placeholder">
+              <div class="placeholder-icon">▶️</div>
+            </div>
+            <div class="video-overlay">
+              <h3>AI Animation</h3>
+              <p>Motion synthesis</p>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <!-- More video cards... -->
     </div>
   </section>
-
   <script>
     // Mobile menu toggle
     document.querySelector('.hamburger').addEventListener('click', () => {
@@ -261,6 +386,7 @@
     });
   </script>
 
-  
+   <!-- Place this right before the closing </body> tag -->
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -670,115 +670,77 @@
     }
   }
 
-/* Video Gallery Section with gradient that bleeds into hero */
+/* ========== Video Gallery Section ========== */
 .video-gallery-section {
-  padding: 6rem 2rem 4rem;
   width: 100%;
+  padding: 6rem 2rem;
   position: relative;
-  overflow: visible; /* Allow gradient to bleed upward */
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.95) 0%,
+    rgba(15, 15, 15, 1) 100%
+  );
+  overflow: hidden;
   z-index: 1;
-  margin-top: -3rem; /* Pull up to create overlap with hero */
 }
 
-/* Vibrant gradient background effect that bleeds into hero */
+/* Optional: Background subtle glow effect */
 .video-gallery-section::before {
   content: '';
   position: absolute;
-  width: 200%;
-  height: 300%; /* Extra tall to ensure it extends upward */
+  width: 80%;
+  height: 40%;
+  top: 10%;
+  left: 10%;
   background: radial-gradient(
-    circle at center,
-    rgba(255, 121, 198, 0.25),
-    rgba(139, 233, 253, 0.2),
-    rgba(80, 60, 120, 0.3),
-    rgba(199, 128, 255, 0.25)
+    circle,
+    rgba(59, 130, 246, 0.08) 0%,
+    rgba(10, 10, 10, 0) 70%
   );
-  filter: blur(100px);
-  opacity: 0.4;
+  filter: blur(50px);
   z-index: -1;
-  top: -200%; /* Position far up to bleed into hero */
-  left: -50%;
-  pointer-events: none;
-  animation: slowRotate 40s infinite linear;
 }
 
-@keyframes slowRotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Glassmorphic container with matching hero gradient border */
 .gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
   position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1100px;
   padding: 2rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  overflow: visible;
-  margin: 0 auto; /* Center the container */
+  background: rgba(15, 15, 15, 0.6);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* RGB border effect using the hero gradient */
-.gallery-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 20px;
-  padding: 1px; /* Border thickness */
-  background: var(--gradient-text); /* Use the same gradient as hero text */
-  filter: blur(1px); /* Subtle blur effect */
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: source-out;
-  animation: border-rotate 8s linear infinite;
-  opacity: 0.8;
-}
-
-/* Content container to account for the border */
-.gallery-content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Gallery heading with gradient */
 .gallery-heading {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 2.5rem;
   background: var(--gradient-text);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
-  margin-bottom: 3rem;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Tabs navigation */
+/* Video Tabs Navigation */
 .video-tabs {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
 }
 
-/* Improved tab button styling */
 .tab-button {
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  outline: none;
   cursor: pointer;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.03);
@@ -816,89 +778,73 @@
   right: 0;
   bottom: 0;
   border-radius: 999px;
-  padding: 2px;
-  background: var(--gradient-text);
+  padding: 1px;
+  background: linear-gradient(45deg, var(--accent-blue), #8a2be2, #ff3d71);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: source-out;
+  -webkit-mask-composite: destination-out;
   mask-composite: exclude;
 }
 
-/* Tab content styling */
-.tab-button span {
-  position: relative;
-  z-index: 1;
-}
-
-/* Responsive styling for tabs */
-@media (max-width: 768px) {
-  .video-tabs {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 0.75rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
-    white-space: nowrap; /* Prevent tab text wrapping */
-  }
-  
-  .video-tabs::-webkit-scrollbar {
-    display: none; /* Chrome/Safari/Opera */
-  }
-  
-  .tab-button {
-    padding: 0.5rem 1.25rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Video grid layout */
+/* Video Grid Layout */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 
-/* Video card styling */
+.video-grid.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* Video Card Styling */
 .video-card {
   position: relative;
+  overflow: hidden;
   border-radius: 1rem;
-  overflow: hidden; /* Ensures video stays within bounds */
-  background: var(--glass-bg);
-  backdrop-filter: var(--blur);
-  -webkit-gftbackdrop-filter: var(--blur);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  aspect-ratio: 9/16; /* Vertical videos */
+  background: rgba(20, 20, 20, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.4s ease;
 }
 
+.video-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Aspect ratio helpers */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16/9;
+}
+
+.aspect-ratio-9-16 {
+  aspect-ratio: 9/16;
+}
+
+/* Video element styling */
 .video-card video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* Video overlay for info */
 .video-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-.video-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
 }
 
 .video-card:hover .video-overlay {
@@ -906,56 +852,76 @@
 }
 
 .video-overlay h3 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-/* Responsive styles */
-@media (max-width: 992px) {
+.video-overlay p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* Placeholder for videos not yet loaded */
+.video-placeholder {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-icon {
+  font-size: 2rem;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.video-card:hover .placeholder-icon {
+  opacity: 0.9;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .gallery-container {
-    max-width: 90%; /* Use percentage width on smaller screens */
-    padding: 1.5rem;
+  
+  .gallery-heading {
+    font-size: 2.2rem;
   }
 }
 
 @media (max-width: 768px) {
   .video-gallery-section {
-    margin-top: -2rem; /* Less overlap on mobile */
-    padding: 4rem 1remt 3rem;
+    padding: 4rem 1rem;
   }
   
   .gallery-container {
-    padding: 1rem;
-    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem;
   }
   
-  .gallery-container::before {
-    border-radius: 15px;
-  }
-
   .gallery-heading {
     font-size: 2rem;
-  }
-
-  .video-tabs {
-    overflow-x: auto;
-    justify-content: flex-start;
-    padding-bottom: 0.5rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    margin-bottom: 2rem;
   }
   
-  .video-tabs::-webkit-scrollbar {
-    display: none; /* Chrome/Safari/Opera */
+  .video-tabs {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  
+  .tab-button {
+    white-space: nowrap;
+    padding: 0.6rem 1.2rem;
   }
   
   .video-grid {
@@ -966,4 +932,6 @@
     aspect-ratio: 16/9; /* Switch to horizontal for better mobile viewing */
   }
 }
+
+/* No JavaScript code should be present in this CSS file. */
 

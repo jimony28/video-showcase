@@ -15,6 +15,10 @@
   
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   
   body {
@@ -22,6 +26,10 @@
     font-family: 'Poppins', sans-serif;
     background: #0a0a0a;
     color: white;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   
   /* ========== Enhanced Header & Navigation - Three-Column Layout ========== */
@@ -861,11 +869,23 @@
   position: relative;
   padding: 0 1.5rem;
   box-sizing: border-box;
+  overflow: hidden; /* Prevent content from spilling out */
 }
 
 .carousel-track {
   margin-bottom: 2rem;
   padding: 0.5rem 0;
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem; /* Ensure padding doesn't cause overflow */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box; /* Critical fix */
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for better UX */
 }
 
 /* Improve responsiveness */
@@ -901,7 +921,9 @@
 .video-card {
   position: relative;
   overflow: hidden;
-  border-radius: 1rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed its container */
   background: rgba(20, 20, 20, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -909,8 +931,6 @@
   transition: all 0.4s ease;
   flex: 0 0 auto;
   width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
   max-width: calc(100% - 2rem);
   margin: 0;
   scroll-snap-align: center;
@@ -925,10 +945,18 @@
 /* Aspect ratio helpers */
 .aspect-ratio-16-9 {
   aspect-ratio: 16/9;
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed its parent */
+  height: auto;
+  position: relative;
 }
 
 .aspect-ratio-9-16 {
   aspect-ratio: 9/16;
+  width: 100%;
+  max-width: 100%; /* Ensure it doesn't exceed its parent */
+  height: auto;
+  position: relative;
 }
 
 /* Video element styling */
@@ -950,6 +978,7 @@
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 .video-card:hover .video-overlay {
@@ -1048,6 +1077,7 @@
   margin: 0 auto;
   padding: 0;
   margin-bottom: 3rem;
+  overflow: hidden; /* Prevent content from spilling out */
 }
 
 .carousel-container:last-child {
@@ -1072,7 +1102,6 @@
   box-sizing: content-box;
 }
 
-/* Hide scrollbar */
 .carousel-track::-webkit-scrollbar {
   display: none;
 }
@@ -1193,6 +1222,10 @@
     width: 2.5rem;
     height: 2.5rem;
     font-size: 1rem;
+  }
+
+  .carousel-track {
+    padding: 0 0.5rem; /* Reduce padding for smaller screens */
   }
 }
 

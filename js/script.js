@@ -277,3 +277,56 @@ document.addEventListener('DOMContentLoaded', function() {
       );
     }
   });
+
+  /* filepath: /Users/vanyvesvillaro/Documents/video-showcase/js/script.js */
+// Form handling with Formspree and confirmation message
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contact-form');
+    const thankYou = document.getElementById('thank-you');
+    
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault(); // Prevent default form submission
+        
+        // Show a subtle loading state on the button
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        try {
+          // Submit to Formspree
+          const response = await fetch(contactForm.action, {
+            method: contactForm.method,
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            // Success! Hide form and show thank you message
+            contactForm.style.display = 'none';
+            thankYou.style.display = 'block';
+            
+            // Scroll to thank you message
+            thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            // Error handling
+            const data = await response.json();
+            throw new Error(data.error || 'Something went wrong. Please try again.');
+          }
+        } catch (error) {
+          // Show error message
+          alert(error.message || "Oops! Something went wrong. Please try again.");
+          
+          // Reset button state
+          submitButton.textContent = originalButtonText;
+          submitButton.disabled = false;
+        }
+      });
+    }
+  });

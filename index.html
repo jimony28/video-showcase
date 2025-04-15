@@ -654,6 +654,51 @@
     </div>
   </section>
 
+  <!-- Contact Section with Confirmation Message -->
+<section class="contact-section" id="contact">
+    <div class="container">
+      <h2 class="section-heading contact-heading">Let's Work Together</h2>
+      <p class="contact-subtitle">Open to freelance, remote, and creative collaborations.</p>
+  
+      <div class="contact-methods">
+        <a href="mailto:vanyesvillaro@gmail.com" class="glass-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>Email Me</span>
+        </a>
+        <a href="https://www.linkedin.com/in/vanyesvillaro/" target="_blank" rel="noopener noreferrer" class="glass-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://vimeo.com/user72277960" target="_blank" rel="noopener noreferrer" class="glass-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 7s-2.9-2.9-7.7.5C9 4 4 8.4 4 14.6c0 3.6 2.8 7.6 7 4.2-3.5 0-5.7-7.8 1-8.6 6 0 4.4 5.2 2.8 7-1.3 1.4 1 3.7 3 2 1.8-1.5 2.8-3.8 3-6.4.4-4.7-5-4.8-4-1.4"></path></svg>
+          <span>Vimeo</span>
+        </a>
+      </div>
+  
+      <!-- Contact Form with Formspree integration -->
+      <form action="https://formspree.io/f/xrbpdlro" method="POST" class="contact-form" id="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+        </div>
+        <!-- Honeypot field to prevent spam -->
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="submit-button">Send Message</button>
+      </form>
+  
+      <!-- Thank You Message (initially hidden) -->
+      <div class="thank-you-message" id="thank-you" style="display: none;">
+        <h3>🎉 Thank you!</h3>
+        <p>Your message has been sent successfully. I'll get back to you soon.</p>
+      </div>
+    </div>
+  </section>
+
   <script>
     // Mobile menu toggle
     document.querySelector('.hamburger').addEventListener('click', () => {

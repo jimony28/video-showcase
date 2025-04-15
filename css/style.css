@@ -1229,3 +1229,140 @@
       font-size: 1.2rem;
     }
   }
+
+ /* Thank You Message Styling */
+.thank-you-message {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+  
+  .thank-you-message h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 1rem;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .thank-you-message p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin: 0;
+  }
+  
+  @keyframes fadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+/* ========== Contact Section - Core Styles ========== */
+.contact-section {
+  width: 100%;
+  padding: 6rem 2rem;
+  background-color: rgba(10, 10, 10, 0.95);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.contact-section .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin: 0 0 2.5rem;
+  line-height: 1.5;
+}
+
+/* Contact Methods */
+.contact-methods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.glass-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.submit-button {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(45deg, var(--accent-blue), #8a2be2);
+  border: none;
+  border-radius: 999px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

@@ -230,3 +230,50 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', updateArrowVisibility);
   });
 });
+
+/* filepath: /Users/vanyvesvillaro/Documents/video-showcase/js/script.js */
+// Scroll Animation for Timeline
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    // Create an intersection observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          // Add visible class with staggered delay
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 150 * index); // 150ms delay between each item
+          
+          // Once it's visible, unobserve it
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2, // Trigger when 20% visible
+      rootMargin: '0px 0px -10% 0px' // Slightly before items come into view
+    });
+    
+    // Observe each timeline item
+    timelineItems.forEach(item => {
+      observer.observe(item);
+    });
+    
+    // Trigger first item if it's already in viewport on load
+    if (isElementInViewport(timelineItems[0])) {
+      timelineItems[0].classList.add('visible');
+      observer.unobserve(timelineItems[0]);
+    }
+    
+    // Helper function to check if element is in viewport
+    function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  });

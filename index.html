@@ -194,7 +194,7 @@
         
         <div class="video-tabs">
             <button class="tab-button active" data-category="shortform"><span>Short Form</span></button>
-            <button class="tab-button" data-category="explainer"><span>Explainer</span></button>
+            <button class="tab-button" data-category="motion"><span>Motion Graphics</span></button>
             <button class="tab-button" data-category="podcast"><span>Podcast</span></button>
             <button class="tab-button" data-category="ai"><span>AI-Driven</span></button>
           </div>
@@ -332,40 +332,102 @@
     <div class="carousel-arrow carousel-next">❯</div>
   </div>
         
-        <!-- Explainer Videos Grid (16:9) -->
-        <div class="video-grid hidden" data-category="explainer">
-          <!-- Video Card 1 -->
-          <div class="video-card aspect-ratio-16-9">
-            <video muted loop playsinline autoplay>
-              <source src="https://iframe.mediadelivery.net/play/409608/b630dc41-8f29-401f-b42e-15db57885cc9" type="video/mp4">
-            </video>
-            <div class="video-overlay">
-              <h3>Product Explainer</h3>
-              <p>SaaS onboarding flow</p>
-            </div>
-          </div>
-          
-          <!-- Add more explainer video cards here -->
-          <div class="video-card aspect-ratio-16-9">
-            <div class="video-placeholder">
-              <div class="placeholder-icon">▶️</div>
-            </div>
-            <div class="video-overlay">
-              <h3>How-To Guide</h3>
-              <p>Step-by-step tutorial</p>
-            </div>
-          </div>
-          
-          <div class="video-card aspect-ratio-16-9">
-            <div class="video-placeholder">
-              <div class="placeholder-icon">▶️</div>
-            </div>
-            <div class="video-overlay">
-              <h3>Feature Overview</h3>
-              <p>New release highlights</p>
-            </div>
-          </div>
+      <!-- Motion Graphics Videos Grid with Carousel (16:9) -->
+<div class="video-grid carousel-container" data-category="motion">
+    <div class="carousel-arrow carousel-prev">❮</div>
+    <div class="carousel-track">
+      <!-- Motion Graphics Video Card 1 -->
+      <div class="video-card aspect-ratio-16-9">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/873280418?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" 
+            loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
         </div>
+        <div class="video-overlay">
+          <h3>3D Product Animation</h3>
+          <p>Dynamic showcase</p>
+        </div>
+      </div>
+      
+      <!-- Motion Graphics Video Card 2 -->
+      <div class="video-card aspect-ratio-16-9">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/873347949?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" 
+            loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Corporate Animation</h3>
+          <p>Brand storytelling</p>
+        </div>
+      </div>
+      
+      <!-- Motion Graphics Video Card 3 -->
+      <div class="video-card aspect-ratio-16-9">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/873351454?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" 
+            loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>UI/UX Animation</h3>
+          <p>Interface demonstration</p>
+        </div>
+      </div>
+      
+      <!-- Motion Graphics Video Card 4 -->
+      <div class="video-card aspect-ratio-16-9">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/862860678?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" 
+            loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Typography Animation</h3>
+          <p>Dynamic text elements</p>
+        </div>
+      </div>
+      
+      <!-- Motion Graphics Video Card 5 -->
+      <div class="video-card aspect-ratio-16-9">
+        <div class="video-container">
+          <iframe 
+            src="https://player.vimeo.com/video/873350834?autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1" 
+            loading="lazy"
+            allow="autoplay; fullscreen; picture-in-picture"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Logo Animation</h3>
+          <p>Brand identity</p>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-arrow carousel-next">❯</div>
+  </div>
         
         <!-- Podcast Videos Grid (16:9) -->
         <div class="video-grid hidden" data-category="podcast">
@@ -401,42 +463,197 @@
           </div>
         </div>
         
-        <!-- AI-Driven Videos Grid (9:16) -->
-        <div class="video-grid hidden" data-category="ai">
-          <!-- AI video cards here -->
-          <div class="video-card aspect-ratio-9-16">
-            <video muted loop playsinline autoplay>
-              <source src="https://iframe.mediadelivery.net/play/409608/25a52aa9-9311-432e-9352-20facfe2e88e" type="video/mp4">
-            </video>
+        <!-- AI-Driven Videos Grid with Carousel (9:16) -->
+<div class="video-grid carousel-container" data-category="ai">
+    <div class="carousel-arrow carousel-prev">❮</div>
+    <div class="carousel-track">
+      <!-- AI Video Card 1 -->
+      <div class="video-card aspect-ratio-9-16">
+        <div class="video-container">
+          <iframe 
+            src="https://iframe.mediadelivery.net/embed/409608/df387224-926a-4dd5-88ca-bb4e91f032dd?autoplay=true&loop=true&muted=true" 
+            loading="lazy"
+            allow="autoplay; encrypted-media"
+            frameborder="0"
+            class="tiktok-video"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>AI Generated Visuals</h3>
+          <p>Midjourney + motion design</p>
+        </div>
+      </div>
+      
+      <!-- AI Video Card 2 -->
+      <div class="video-card aspect-ratio-9-16">
+        <div class="video-container">
+          <iframe 
+            src="https://iframe.mediadelivery.net/embed/409608/c37f3270-6b10-4f71-a13b-48cf9dc9e379?autoplay=true&loop=true&muted=true" 
+            loading="lazy"
+            allow="autoplay; encrypted-media"
+            frameborder="0"
+            class="tiktok-video"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Synthetic Voice</h3>
+          <p>AI narration with ElevenLabs</p>
+        </div>
+      </div>
+      
+      <!-- AI Video Card 3 -->
+      <div class="video-card aspect-ratio-9-16">
+        <div class="video-container">
+          <iframe 
+            src="https://iframe.mediadelivery.net/embed/409608/48c58707-d88b-4a20-adea-c545e26339bf?autoplay=true&loop=true&muted=true" 
+            loading="lazy"
+            allow="autoplay; encrypted-media"
+            frameborder="0"
+            class="tiktok-video"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Data Visualization</h3>
+          <p>AI-assisted analytics</p>
+        </div>
+      </div>
+      
+      <!-- AI Video Card 4 -->
+      <div class="video-card aspect-ratio-9-16">
+        <div class="video-container">
+          <iframe 
+            src="https://iframe.mediadelivery.net/embed/409608/bbc74e3c-b8ce-4498-86fc-055a77b00ca2?autoplay=true&loop=true&muted=true" 
+            loading="lazy"
+            allow="autoplay; encrypted-media"
+            frameborder="0"
+            class="tiktok-video"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Digital Avatar</h3>
+          <p>Synthetic presenter</p>
+        </div>
+      </div>
+      
+      <!-- AI Video Card 5 -->
+      <div class="video-card aspect-ratio-9-16">
+        <div class="video-container">
+          <iframe 
+            src="https://iframe.mediadelivery.net/embed/409608/0516c9ad-8b8a-4910-8b87-333bc527a6a3?autoplay=true&loop=true&muted=true" 
+            loading="lazy"
+            allow="autoplay; encrypted-media"
+            frameborder="0"
+            class="tiktok-video"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-overlay">
+          <h3>Generative Scenes</h3>
+          <p>DALL-E with animation</p>
+        </div>
+      </div>
+      
+        <!-- AI Video Card 6 -->
+            <div class="video-card aspect-ratio-9-16">
+             <div class="video-container">
+                 <iframe 
+                 src="https://iframe.mediadelivery.net/embed/409608/bc000df4-d330-4973-9216-b2976d6aeccf?autoplay=true&loop=true&muted=true" 
+                loading="lazy"
+                allow="autoplay; encrypted-media"
+                frameborder="0"
+                 class="tiktok-video"
+                allowfullscreen>
+                </iframe>
+            </div>
             <div class="video-overlay">
-              <h3>AI Generated Content</h3>
-              <p>Midjourney + After Effects</p>
+            <h3>AI Motion Graphics</h3>
+             <p>Automated animation</p>
+             </div>
+             </div>
             </div>
-          </div>
-          
-          <div class="video-card aspect-ratio-9-16">
-            <div class="video-placeholder">
-              <div class="placeholder-icon">▶️</div>
-            </div>
-            <div class="video-overlay">
-              <h3>Voice Synthesis</h3>
-              <p>ElevenLabs narration</p>
-            </div>
-          </div>
-          
-          <div class="video-card aspect-ratio-9-16">
-            <div class="video-placeholder">
-              <div class="placeholder-icon">▶️</div>
-            </div>
-            <div class="video-overlay">
-              <h3>AI Animation</h3>
-              <p>Motion synthesis</p>
-            </div>
+             <div class="carousel-arrow carousel-next">❯</div>
+             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+    <!-- End of Video Gallery Section -->
+
+<!-- Experience Section with Scroll Animation -->
+<section class="experience-section" id="experience">
+    <div class="container">
+      <h2 class="section-heading">Experience</h2>
+      
+      <div class="timeline">
+        <!-- Senior Graphic Designer Role -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Jan 2024 – Present</div>
+            <h3 class="role-title">Senior Graphic Designer & Video Editor</h3>
+            <div class="company-name">Youth Studios <span class="location">Remote</span></div>
+            <ul class="responsibilities">
+              <li>Edited shortform and longform videos for YouTube, Instagram, TikTok</li>
+              <li>Created motion graphics for global youth nonprofits</li>
+              <li>Managed SEO strategies for video discoverability</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Podcast Editor Role -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">July 2023 – Present</div>
+            <h3 class="role-title">Podcast & YouTube Video Editor</h3>
+            <div class="company-name">Into the Dust Archaeology <span class="location">Remote</span></div>
+            <ul class="responsibilities">
+              <li>Edited episodes for YouTube + podcast channels</li>
+              <li>Applied color grading, motion overlays, and synced visuals</li>
+              <li>Collaborated on storytelling structure</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Multimedia Designer Role -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Aug 2022 – Dec 2023</div>
+            <h3 class="role-title">Multimedia Designer</h3>
+            <div class="company-name">Global Citizen Capital</div>
+            <ul class="responsibilities">
+              <li>Produced branded visuals for nonprofit projects</li>
+              <li>Designed websites, graphics, and event materials</li>
+              <li>Worked with cross-regional teams (HK, SG, NY)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Freelance Role -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Aug 2019 – Present</div>
+            <h3 class="role-title">Freelance Multimedia Designer</h3>
+            <div class="company-name">Various Clients</div>
+            <ul class="responsibilities">
+              <li>Delivered videos and branding for events and startups</li>
+              <li>Built UI/UX prototypes and animated explainers</li>
+              <li>Collaborated with agencies on motion and identity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <script>
     // Mobile menu toggle
     document.querySelector('.hamburger').addEventListener('click', () => {
@@ -484,7 +701,6 @@
     });
   </script>
 
-   <!-- Place this right before the closing </body> tag -->
-<script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
